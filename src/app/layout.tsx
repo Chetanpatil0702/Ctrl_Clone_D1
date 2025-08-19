@@ -29,6 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Full-page Dark Animated Gradient Background */}
+        <div className="dark-gradient-background"></div>
+
         {children}
         <CursorTrail />
       </body>

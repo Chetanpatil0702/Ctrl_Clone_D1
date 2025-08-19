@@ -18,10 +18,22 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm text-white/80">
-          <Link href="#token" className="hover:opacity-80 transition-opacity">$CTRL</Link>
-          <Link href="#support" className="hover:opacity-80 transition-opacity">Support</Link>
-          <Link href="#security" className="hover:opacity-80 transition-opacity">Security</Link>
-          <Link href="#resources" className="hover:opacity-80 transition-opacity">Resources</Link>
+          <Link href="#token" className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+            <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="relative z-10">$CTRL</span>
+          </Link>
+          <Link href="#support" className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+            <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="relative z-10">Support</span>
+          </Link>
+          <Link href="#security" className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+            <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="relative z-10">Security</span>
+          </Link>
+          <Link href="#resources" className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+            <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            <span className="relative z-10">Resources</span>
+          </Link>
         </nav>
 
         <div className="hidden md:block">
@@ -44,10 +56,22 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden border-t border-white/10">
           <div className="px-4 py-4 flex flex-col gap-4 text-sm">
-            <Link href="#token" onClick={() => setIsOpen(false)}>$CTRL</Link>
-            <Link href="#support" onClick={() => setIsOpen(false)}>Support</Link>
-            <Link href="#security" onClick={() => setIsOpen(false)}>Security</Link>
-            <Link href="#resources" onClick={() => setIsOpen(false)}>Resources</Link>
+            <Link href="#token" onClick={() => setIsOpen(false)} className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+              <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="relative z-10">$CTRL</span>
+            </Link>
+            <Link href="#support" onClick={() => setIsOpen(false)} className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+              <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="relative z-10">Support</span>
+            </Link>
+            <Link href="#security" onClick={() => setIsOpen(false)} className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+              <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="relative z-10">Security</span>
+            </Link>
+            <Link href="#resources" onClick={() => setIsOpen(false)} className="group relative px-2 py-1 rounded-md hover:text-white transition-colors duration-200">
+              <span className="absolute inset-0 bg-white/10 rounded-md scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="relative z-10">Resources</span>
+            </Link>
             <DownloadButton href="#download" className="w-full justify-center" />
           </div>
         </div>

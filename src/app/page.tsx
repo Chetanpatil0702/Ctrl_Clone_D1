@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import ChainsMarquee from "@/components/ChainsMarquee";
 import ChainsIntro from "@/components/ChainsIntro";
 import Opportunity from "@/components/Opportunity";
 import Security from "@/components/Security";
@@ -9,6 +8,8 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
 import Newsletter from "@/components/Newsletter";
+import Chains from "@/components/Chains";
+import AppScreens from "@/components/AppScreens";
 
 export default function Home() {
   return (
@@ -17,8 +18,9 @@ export default function Home() {
       <main>
         <Hero />
         <Features />
-        <ChainsMarquee />
-        <ChainsIntro />
+        <Chains />
+        <AppScreens />
+        {/* <ChainsIntro /> */}
         <Opportunity />
         <Security />
         <FAQ />

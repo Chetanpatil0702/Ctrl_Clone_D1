@@ -63,7 +63,7 @@ export default function CursorTrail() {
 
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     return () => {
-      window.removeEventListener("pointermove", onPointerMove as any);
+      window.removeEventListener("pointermove", onPointerMove);
       if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
     };
   }, []);

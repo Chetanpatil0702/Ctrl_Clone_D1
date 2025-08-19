@@ -1,4 +1,3 @@
-import Link from "next/link";
 import DownloadButton from "@/components/DownloadButton";
 
 export default function CTA() {

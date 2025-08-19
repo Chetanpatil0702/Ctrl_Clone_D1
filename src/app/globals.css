@@ -1,3 +1,6 @@
+/* Import Tomato Grotesk font first */
+@import url('https://fonts.googleapis.com/css2?family=Tomato+Grotesk:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 :root {
@@ -16,11 +19,105 @@
 /* Site is dark by default to match ctrl.xyz */
 
 body {
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
     "Segoe UI Emoji";
+}
+
+/* Custom font utility class */
+.font-tomato {
+  font-family: 'Tomato Grotesk', Arial, sans-serif;
+}
+
+/* Modern fluid typography system for chains section */
+.chains-section {
+  --chains-bg: #f9faf9;
+  --chains-text: #171717;
+  --chains-accent: #3a86ff;
+  --chains-border: rgba(23, 23, 23, 0.1);
+  font-size: 3vw;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1079px) {
+  .chains-section {
+    font-size: 1.6vw;
+  }
+}
+
+@media screen and (min-width: 1080px) and (max-width: 1599px) {
+  .chains-section {
+    font-size: 1.3vw;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .chains-section {
+    font-size: 1vw;
+  }
+}
+
+/* Infinite Loop Marquee Styles */
+.marquee { 
+  display: flex; 
+  width: max-content; 
+  animation: marquee var(--speed, 25s) linear infinite; 
+}
+
+.marquee[data-speed="slow"] { 
+  --speed: 40s; 
+}
+
+.marquee[data-speed="normal"] { 
+  --speed: 25s; 
+}
+
+.marquee[data-speed="fast"] { 
+  --speed: 15s; 
+}
+
+.marquee-paused:hover .marquee { 
+  animation-play-state: paused; 
+}
+
+@keyframes marquee { 
+  from { 
+    transform: translateY(0); 
+  } 
+  to { 
+    transform: translateY(-50%); 
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee { 
+    animation: none; 
+  }
+}
+
+/* New styles for horizontal marquee */
+.marquee-container .marquee {
+  animation: horizontal-marquee 30s linear infinite;
+}
+
+.marquee-container.marquee-paused:hover .marquee {
+  animation-play-state: paused;
+}
+
+@keyframes horizontal-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-container .marquee {
+    animation: none;
+  }
 }
 
 /* Comet-style cursor trail */
@@ -91,4 +188,115 @@ body {
   color: transparent;
   animation: gradient-shimmer-x 3s linear infinite;
   filter: drop-shadow(0 0 10px rgba(138,99,249,0.35)) drop-shadow(0 0 20px rgba(138,99,249,0.25));
+}
+
+/* Modern fluid typography for chains section */
+.fluid-text-xs { font-size: clamp(0.75rem, 1.5vw, 0.875rem); }
+.fluid-text-sm { font-size: clamp(0.875rem, 2vw, 1rem); }
+.fluid-text-base { font-size: clamp(1rem, 2.5vw, 1.125rem); }
+.fluid-text-lg { font-size: clamp(1.125rem, 3vw, 1.25rem); }
+.fluid-text-xl { font-size: clamp(1.25rem, 3.5vw, 1.5rem); }
+.fluid-text-2xl { font-size: clamp(1.5rem, 4vw, 1.875rem); }
+.fluid-text-3xl { font-size: clamp(1.875rem, 5vw, 2.25rem); }
+.fluid-text-4xl { font-size: clamp(2.25rem, 6vw, 3rem); }
+.fluid-text-5xl { font-size: clamp(3rem, 7vw, 4rem); }
+
+/* Custom scrollbar for Supported Chains section */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #8A63F9;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #7a4edb;
+}
+
+/* Animated Dark Gradient Background */
+@keyframes dark-gradient-animation {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    background-position: 50% 75%;
+    transform: scale(1.05) rotate(2deg);
+    opacity: 0.95;
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+  75% {
+    background-position: 50% 25%;
+    transform: scale(0.95) rotate(-2deg);
+    opacity: 0.85;
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.9;
+  }
+}
+
+.dark-gradient-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #0B0B0F; /* Base pure dark */
+  overflow: hidden;
+}
+
+.dark-gradient-background::before {
+  content: '';
+  position: absolute;
+  inset: -50%; /* Cover a larger area for movement */
+  background: radial-gradient(
+    circle at 25% 25%,
+    #6C2BD9 0%,
+    transparent 40%
+  ),
+  radial-gradient(
+    circle at 75% 75%,
+    #3B0764 0%,
+    transparent 40%
+  ),
+  radial-gradient(
+    circle at 80% 20%,
+    #9333EA 0%,
+    transparent 40%
+  );
+  background-size: 200% 200%; /* Allows for movement */
+  animation: dark-gradient-animation 40s ease-in-out infinite alternate;
+  filter: blur(60px);
+  opacity: 0.8;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .dark-gradient-background::before {
+    filter: blur(40px);
+    opacity: 0.7;
+    animation-duration: 50s; /* Slower animation on mobile */
+  }
+}
+
+@keyframes vertical-marquee {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-vertical {
+  animation: vertical-marquee 20s linear infinite;
 }
