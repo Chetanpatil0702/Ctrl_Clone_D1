@@ -27,7 +27,7 @@ const SLICES: Slice[] = [
   {
     title: "Connect to every dapp.",
     description:
-      "Access any dapp with universal compatibility. No more switching wallets or managing multiple browser extensions.",
+      "Access any dapp with universal compatibility. No more switching wallets and managing multiple browser extensions.",
     alignment: "left",
   },
   {
