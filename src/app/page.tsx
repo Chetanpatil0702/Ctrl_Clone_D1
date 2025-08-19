@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import ChainsIntro from "@/components/ChainsIntro";
 import Opportunity from "@/components/Opportunity";
 import Security from "@/components/Security";
 import CTA from "@/components/CTA";

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
@@ -40,7 +40,7 @@ const SLICES: Slice[] = [
 
 interface TextCardProps {
   slice: { title: string; description: string; alignment: 'left' | 'right' };
-  scrollYProgress: any; // Ideally this would be MotionValue<number>, but for brevity and current usage, any is tolerated if Framer Motion types are complex.
+  scrollYProgress: MotionValue<number>;
   index: number;
 }
 
