@@ -5,7 +5,13 @@ import { useRef } from "react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 
-const SLICES = [
+interface Slice {
+  title: string;
+  description: string;
+  alignment: 'left' | 'right';
+}
+
+const SLICES: Slice[] = [
   {
     title: "Focus on opportunities, not fees.",
     description:
@@ -31,6 +37,12 @@ const SLICES = [
     alignment: "right",
   },
 ];
+
+interface TextCardProps {
+  slice: { title: string; description: string; alignment: 'left' | 'right' };
+  scrollYProgress: any; // Ideally this would be MotionValue<number>, but for brevity and current usage, any is tolerated if Framer Motion types are complex.
+  index: number;
+}
 
 export default function AppScreens() {
   const containerRef = useRef(null);
@@ -90,7 +102,7 @@ export default function AppScreens() {
   );
 }
 
-function TextCard({ slice, scrollYProgress, index }: any) {
+function TextCard({ slice, scrollYProgress, index }: TextCardProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: false,
