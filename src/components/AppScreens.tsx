@@ -75,15 +75,32 @@ export default function AppScreens() {
           </div>
 
           {/* Sticky Phone Mockup */}
-          <div className="sticky top-24 h-[500px] w-[300px] flex-shrink-0 bg-gray-800 rounded-3xl overflow-hidden shadow-2xl border border-white/10 lg:w-[350px] lg:h-[600px] flex items-center justify-center text-white text-2xl">
-            <Image
-              src="/phone-mockup.png"
-              alt="App Screen"
-              width={350}
-              height={600}
-              className="object-cover w-full h-full"
-            />
-          </div>
+          {/* Sticky Phone Mockup with animated glowing border */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0px 0px 60px rgba(0, 200, 255, 0.5)",
+            }}
+            className="relative flex-shrink-0"
+          >
+            {/* Gradient Border Wrapper */}
+            <div className="absolute -inset-2 rounded-3xl animate-gradient bg-[linear-gradient(270deg,#7f5af0,#2cb67d,#ff6b6b)] bg-[length:600%_600%] opacity-70 blur-xl" />
+
+            {/* Phone Container */}
+            <div className="relative sticky top-24 h-[500px] w-[300px] lg:w-[350px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 flex items-center justify-center bg-black">
+              <Image
+                src="/phone-mockup.png"
+                alt="App Screen"
+                width={350}
+                height={600}
+                className="object-cover w-full h-full"
+              />
+            </div>
+          </motion.div>
+
 
           {/* Right Cards */}
           <div className="w-full lg:w-1/3 flex flex-col gap-16 lg:gap-24 lg:pl-8 mt-16 lg:mt-0">
