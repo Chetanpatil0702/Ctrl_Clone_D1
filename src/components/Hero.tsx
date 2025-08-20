@@ -85,9 +85,7 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      <div className="absolute inset-0 pointer-events-none -bottom-40" style={{ transform: `translateY(${offsetY * 0.2}px)` }}>
-        <Image src="/hero-illustration-placeholder.png" alt="Hero Illustration" width={800} height={800} className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[800px] h-auto opacity-70" />
-      </div>
+      
     </section>
   );
 }

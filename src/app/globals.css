@@ -254,7 +254,7 @@ body {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-color: #0B0B0F; /* Base pure dark */
+  background-color: #050508; /* Darker base pure dark */
   overflow: hidden;
 }
 
@@ -264,30 +264,30 @@ body {
   inset: -50%; /* Cover a larger area for movement */
   background: radial-gradient(
     circle at 25% 25%,
-    #6C2BD9 0%,
+    #4B1F8D 0%, /* Darker purple */
     transparent 40%
   ),
   radial-gradient(
     circle at 75% 75%,
-    #3B0764 0%,
+    #21043A 0%, /* Darker deep purple */
     transparent 40%
   ),
   radial-gradient(
     circle at 80% 20%,
-    #9333EA 0%,
+    #6A24A6 0%, /* Darker vibrant purple */
     transparent 40%
   );
   background-size: 200% 200%; /* Allows for movement */
   animation: dark-gradient-animation 40s ease-in-out infinite alternate;
-  filter: blur(60px);
-  opacity: 0.8;
+  filter: blur(70px); /* Slightly more blur for smoother transition */
+  opacity: 0.7; /* Slightly less opaque for darker feel */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .dark-gradient-background::before {
-    filter: blur(40px);
-    opacity: 0.7;
+    filter: blur(50px);
+    opacity: 0.6;
     animation-duration: 50s; /* Slower animation on mobile */
   }
 }
@@ -300,3 +300,4 @@ body {
 .animate-vertical {
   animation: vertical-marquee 20s linear infinite;
 }
+
