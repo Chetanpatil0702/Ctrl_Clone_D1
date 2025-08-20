@@ -51,14 +51,54 @@ export default function AppScreens() {
     offset: ["start end", "end start"],
   });
 
+  const { ref: headingRef, inView: headingInView } = useInView({
+    triggerOnce: false, // Changed to false for continuous animation
+    threshold: 0, // Changed to 0 for continuous re-triggering
+  });
+
   return (
     <section
       ref={containerRef}
       className="relative bg-transparent py-16 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-16">
-          Seamlessly Connected.
+        <h2
+          ref={headingRef}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-16"
+        >
+          <span className="sr-only">Seamlessly Connected.</span>
+          <motion.span
+            initial="hidden"
+            animate={headingInView ? "visible" : "hidden"}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+              staggerChildren: 0.15,
+            }}
+            aria-hidden="true"
+          >
+            {"Seamlessly Connected.".split(" ").map((word, i, arr) => (
+              <motion.span
+                key={i}
+                className="inline-block"
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      duration: 2,
+                      ease: "easeInOut",
+                    },
+                  },
+                }}
+              >
+                {word + (i < arr.length - 1 ? " " : "")}
+              </motion.span>
+            ))}
+          </motion.span>
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-12 lg:gap-8">
